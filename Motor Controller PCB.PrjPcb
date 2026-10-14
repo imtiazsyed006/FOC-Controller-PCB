@@ -280,7 +280,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=3
+AnnotateOrder=-1
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -288,7 +288,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=EFZRITNS
+DocumentUniqueId=
 
 [Document15]
 DocumentPath=Motor Controller.PCBDwf
@@ -339,7 +339,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=ATJQJBYQ
+DocumentUniqueId=
 
 [Document18]
 DocumentPath=Motor Controller PCB.BomDoc
