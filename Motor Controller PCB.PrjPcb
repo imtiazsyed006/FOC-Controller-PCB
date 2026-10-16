@@ -70,40 +70,6 @@ GenerateClassCluster=0
 DocumentUniqueId=KMNVNRIG
 
 [Document2]
-DocumentPath=PMP23468.PcbLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=VOESIODQ
-
-[Document3]
-DocumentPath=PMP23468.SchLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=SYCHECAR
-
-[Document4]
 DocumentPath=SamacSys.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -120,7 +86,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=MPRJBCLL
 
-[Document5]
+[Document3]
 DocumentPath=SamacSys.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -137,7 +103,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NGLTGAHM
 
-[Document6]
+[Document4]
 DocumentPath=INA241A3IDDFR.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -154,7 +120,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=RHNRAMCE
 
-[Document7]
+[Document5]
 DocumentPath=SOT65P280X110-8N.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -169,9 +135,9 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=VQSOKQYI
 
-[Document8]
+[Document6]
 DocumentPath=stm32f407.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -188,7 +154,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=IWECGINA
 
-[Document9]
+[Document7]
 DocumentPath=LMR16006XDDC.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -205,7 +171,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document10]
+[Document8]
 DocumentPath=LMR16006XDDC.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -222,7 +188,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=OUQQZPXV
 
-[Document11]
+[Document9]
 DocumentPath=Buck Converters.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -239,7 +205,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=CPSIFRRN
 
-[Document12]
+[Document10]
 DocumentPath=MC33269D-3.3G.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -256,7 +222,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document13]
+[Document11]
 DocumentPath=MC33269D-3.3G.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -273,7 +239,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QVGKFAZI
 
-[Document14]
+[Document12]
 DocumentPath=Encoder.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -288,9 +254,9 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=EFZRITNS
 
-[Document15]
+[Document13]
 DocumentPath=Motor Controller.PCBDwf
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -307,7 +273,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=PJBLLFOV
 
-[Document16]
+[Document14]
 DocumentPath=Motor Controller PCB.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -324,7 +290,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document17]
+[Document15]
 DocumentPath=Copy of Motor Controller.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -339,9 +305,9 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=ATJQJBYQ
 
-[Document18]
+[Document16]
 DocumentPath=Motor Controller PCB.BomDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -358,7 +324,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document19]
+[Document17]
 DocumentPath=CAMtastic1.Cam
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -375,8 +341,42 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document20]
+[Document18]
 DocumentPath=CAMtastic2.Cam
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document19]
+DocumentPath=PMP23468.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=VOESIODQ
+
+[Document20]
+DocumentPath=PMP23468.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
