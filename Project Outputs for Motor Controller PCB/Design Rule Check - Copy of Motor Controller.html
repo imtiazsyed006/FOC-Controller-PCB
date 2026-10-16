@@ -1,0 +1,498 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD25\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">10/16/2026</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">10:13:18 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc" class="file"><acronym title="C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc">C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">36</td></tr>
+</table>
+</td>
+</table><a name="IDC2B41ASCA4SCEVHFXIQAD2GXCIPPA3CFVDETYNMZEOZBN2X1RFE"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLC3HZHUXW2M1NZ4ARCREAAMTVCATFYGIKMPHDFOXNPDXGZURH0IK">Clearance Constraint (Gap=0.2mm) (All AND NOT InComponent('U6') AND NOT IsVia),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDVCXOFTQ4TANRMINS2T4KLCZVIEY2KHADWDMD1NELFBN5SIZ4UYYN">Clearance Constraint (Gap=0.2mm) (InComponent('U6')),(IsVia)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLXK5MMLNAEWCCHOWQM45J2AEULKWDNAXXXPRLKE0S1CCH1TK54BN">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDXK2RNRPZ3N3FEIRF2DTWOS102OPF44PJNBPEUVMSR1EQTI5P3Y3B">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDTAQJPNQZIY3PNKAG52WD2QSLIFGFZHNJBFXM1QGEUXQP4FMD4L0G">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDK1YII5CV1HN3LINJVDSIKJRM2PFGJ1SSFQA4YMC14AG1MRSWDIS">Width Constraint (Min=0.1mm) (Max=10mm) (Preferred=0.127mm) (Not InDifferentialPairClass('All Differential Pairs'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDEXEXZ1EFCYIBEAMNOXSGC3WPHG3B15CC4YEAO3RKD1XK222RUOP">Routing Topology Rule(Topology=Shortest) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKC5ELCCWTRKSPOZGN4XWFMUKMDOLTCF0HHJZHXFPIOFU4JS3FA5E">Power Plane Connect Rule(Direct Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZ1D4QUA4TYDQD2DQRANGCA4MVJQBBKUFZFX42SFZRA3GA5I0X5RO">Minimum Annular Ring (Minimum=0.1mm) (IsMicroVia)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDI23XNK2K1HELF531GQ3C4LOTWY1M3JAOXNDBHDMT1JYPJOTZV4I">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3HJ1EFYQODXXUXE5MG5OYPR1GNT05KL2KFKJRGJL3B3ZFSRASIG">Hole To Hole Clearance (Gap=0.21mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDFQ4X01ULLCLYEQUT3EFLZZICIIBFGMIL0PZMVBVEBQPGWI501DH">Minimum Solder Mask Sliver (Gap=0.09mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJVLRI5TFLCRKF5ZB2OYLOIJZPDZ4LGHO45XIJUWHVVR2KDYVYKJ">Silk To Solder Mask (Clearance=0.065mm) (IsPad),(All)</a></td>
+<td class="column2">11</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDUVMBH1I3CEALHYJPIEKR4ATDLWLS2EM2CK0FGCWIOHUZNYYTREL">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">9</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3PHG40CDCCE3H2V03UB3OOFR1IQPAH3VUMIXYJI2CFP4BUSJD11C">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID2L4YGCPUHUWZHVKTX2YD31GZUB4DFMT2RKHVA1BLAD3TMSFQLPMJ">Board Clearance Constraint (Gap=0mm) (All)</a></td>
+<td class="column2">16</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHZF5CKQ3V2MVKFFKZHTU2L2LJGTAQMTO10VN40GNIVWUSD2EPUCM">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">36</td>
+</tr>
+</table><br><a name="IDJVLRI5TFLCRKF5ZB2OYLOIJZPDZ4LGHO45XIJUWHVVR2KDYVYKJ"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.065mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4529.159mil|Location2.X=4531.865mil|Location1.Y=3578.372mil|Location2.Y=3581.078mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4529.159mil|Location2.X=4531.865mil|Location1.Y=3578.372mil|Location2.Y=3581.078mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.065mm) Between Arc (115.075mm,90.8mm) on Bottom Overlay And Pad C53-2(115.1mm,91.3mm) on Signal 3 [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4565.575mil|Location2.X=4568.282mil|Location1.Y=3236.836mil|Location2.Y=3239.542mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4565.575mil|Location2.X=4568.282mil|Location1.Y=3236.836mil|Location2.Y=3239.542mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.065mm) Between Arc (115.875mm,82.25mm) on Bottom Overlay And Pad C19-1(115.625mm,82.45mm) on Signal 3 [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4366.758mil|Location2.X=4369.464mil|Location1.Y=3056.718mil|Location2.Y=3059.424mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4366.758mil|Location2.X=4369.464mil|Location1.Y=3056.718mil|Location2.Y=3059.424mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.065mm) Between Pad C12-1(110.535mm,77.147mm) on Signal 3 And Track (110.95mm,77.675mm)(110.95mm,80.525mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4368.677mil|Location2.X=4371.383mil|Location1.Y=3056.718mil|Location2.Y=3059.424mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4368.677mil|Location2.X=4371.383mil|Location1.Y=3056.718mil|Location2.Y=3059.424mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.065mm) Between Pad C12-1(110.535mm,77.147mm) on Signal 3 And Track (110.95mm,77.675mm)(111.1mm,77.675mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3950.936mil|Location2.X=3954.745mil|Location1.Y=3633.721mil|Location2.Y=3637.53mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3950.936mil|Location2.X=3954.745mil|Location1.Y=3633.721mil|Location2.Y=3637.53mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.01mm &lt; 0.065mm) Between Pad C33-2(100.561mm,91.99mm) on Signal 3 And Track (100.4mm,92.4mm)(100.6mm,92.5mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.01mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3796.678mil|Location2.X=3799.385mil|Location1.Y=2469.749mil|Location2.Y=2472.455mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3796.678mil|Location2.X=3799.385mil|Location1.Y=2469.749mil|Location2.Y=2472.455mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.065mm) Between Pad C40-2(96.8mm,62.4mm) on Signal 1 And Track (96.47mm,62.766mm)(96.47mm,63.016mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3796.678mil|Location2.X=3799.385mil|Location1.Y=2469.749mil|Location2.Y=2472.455mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3796.678mil|Location2.X=3799.385mil|Location1.Y=2469.749mil|Location2.Y=2472.455mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.065mm) Between Pad C40-2(96.8mm,62.4mm) on Signal 1 And Track (96.47mm,62.766mm)(99.77mm,62.766mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4434.828mil|Location2.X=4437.534mil|Location1.Y=3798.529mil|Location2.Y=3801.235mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4434.828mil|Location2.X=4437.534mil|Location1.Y=3798.529mil|Location2.Y=3801.235mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.065mm) Between Pad C45-1(112.479mm,96.765mm) on Signal 1 And Track (110.783mm,96.517mm)(116.217mm,96.517mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4355.618mil|Location2.X=4359.426mil|Location1.Y=3795.914mil|Location2.Y=3799.724mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4355.618mil|Location2.X=4359.426mil|Location1.Y=3795.914mil|Location2.Y=3799.724mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.004mm &lt; 0.065mm) Between Pad R24-1(110.379mm,96.665mm) on Signal 1 And Track (110.783mm,95.57mm)(110.783mm,96.517mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.004mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4355.618mil|Location2.X=4359.426mil|Location1.Y=3797.977mil|Location2.Y=3801.786mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4355.618mil|Location2.X=4359.426mil|Location1.Y=3797.977mil|Location2.Y=3801.786mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.004mm &lt; 0.065mm) Between Pad R24-1(110.379mm,96.665mm) on Signal 1 And Track (110.783mm,96.517mm)(116.217mm,96.517mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.004mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4371.831mil|Location2.X=4374.537mil|Location1.Y=3798.529mil|Location2.Y=3801.235mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4371.831mil|Location2.X=4374.537mil|Location1.Y=3798.529mil|Location2.Y=3801.235mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.065mm) Between Pad R24-2(111.379mm,96.665mm) on Signal 1 And Track (110.783mm,96.517mm)(116.217mm,96.517mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDUVMBH1I3CEALHYJPIEKR4ATDLWLS2EM2CK0FGCWIOHUZNYYTREL"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4322.288mil|Location2.X=4333.538mil|Location1.Y=3302.495mil|Location2.Y=3313.745mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4322.288mil|Location2.X=4333.538mil|Location1.Y=3302.495mil|Location2.Y=3313.745mil|Absolute=True">Silk To Silk Clearance Constraint: (0.24mm &lt; 0.254mm) Between Text "+5V" (110.689mm,85.5mm) on Bottom Overlay And Text "GND" (109.809mm,85.5mm) on Bottom Overlay Silk Text to Silk Clearance [0.24mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4356.048mil|Location2.X=4367.298mil|Location1.Y=3332.343mil|Location2.Y=3343.593mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4356.048mil|Location2.X=4367.298mil|Location1.Y=3332.343mil|Location2.Y=3343.593mil|Absolute=True">Silk To Silk Clearance Constraint: (0.173mm &lt; 0.254mm) Between Text "+5V" (110.689mm,85.5mm) on Bottom Overlay And Track (111mm,83mm)(111mm,85.9mm) on Bottom Overlay Silk Text to Silk Clearance [0.173mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4183.706mil|Location2.X=4194.956mil|Location1.Y=3325.027mil|Location2.Y=3336.277mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4183.706mil|Location2.X=4194.956mil|Location1.Y=3325.027mil|Location2.Y=3336.277mil|Absolute=True">Silk To Silk Clearance Constraint: (0.218mm &lt; 0.254mm) Between Text "CS" (106.289mm,85.5mm) on Bottom Overlay And Text "SCK" (107.169mm,85.5mm) on Bottom Overlay Silk Text to Silk Clearance [0.218mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4151.167mil|Location2.X=4162.417mil|Location1.Y=3324.99mil|Location2.Y=3336.24mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4151.167mil|Location2.X=4162.417mil|Location1.Y=3324.99mil|Location2.Y=3336.24mil|Absolute=True">Silk To Silk Clearance Constraint: (0.111mm &lt; 0.254mm) Between Text "CS" (106.289mm,85.5mm) on Bottom Overlay And Track (105.4mm,83mm)(105.4mm,85.9mm) on Bottom Overlay Silk Text to Silk Clearance [0.111mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4287.424mil|Location2.X=4298.674mil|Location1.Y=3347.449mil|Location2.Y=3358.699mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4287.424mil|Location2.X=4298.674mil|Location1.Y=3347.449mil|Location2.Y=3358.699mil|Absolute=True">Silk To Silk Clearance Constraint: (0.229mm &lt; 0.254mm) Between Text "GND" (109.809mm,85.5mm) on Bottom Overlay And Text "MISO" (108.929mm,85.5mm) on Bottom Overlay Silk Text to Silk Clearance [0.229mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4253.013mil|Location2.X=4264.263mil|Location1.Y=3290.537mil|Location2.Y=3301.787mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4253.013mil|Location2.X=4264.263mil|Location1.Y=3290.537mil|Location2.Y=3301.787mil|Absolute=True">Silk To Silk Clearance Constraint: (0.239mm &lt; 0.254mm) Between Text "MISO" (108.929mm,85.5mm) on Bottom Overlay And Text "MOSI" (108.049mm,85.5mm) on Bottom Overlay Silk Text to Silk Clearance [0.239mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4270.392mil|Location2.X=4281.642mil|Location1.Y=3270.907mil|Location2.Y=3282.157mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4270.392mil|Location2.X=4281.642mil|Location1.Y=3270.907mil|Location2.Y=3282.157mil|Absolute=True">Silk To Silk Clearance Constraint: (0.194mm &lt; 0.254mm) Between Text "MISO" (108.929mm,85.5mm) on Bottom Overlay And Track (105.4mm,83mm)(111mm,83mm) on Bottom Overlay Silk Text to Silk Clearance [0.194mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4218.332mil|Location2.X=4229.582mil|Location1.Y=3322.454mil|Location2.Y=3333.704mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4218.332mil|Location2.X=4229.582mil|Location1.Y=3322.454mil|Location2.Y=3333.704mil|Absolute=True">Silk To Silk Clearance Constraint: (0.228mm &lt; 0.254mm) Between Text "MOSI" (108.049mm,85.5mm) on Bottom Overlay And Text "SCK" (107.169mm,85.5mm) on Bottom Overlay Silk Text to Silk Clearance [0.228mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4223.08mil|Location2.X=4234.33mil|Location1.Y=3271.707mil|Location2.Y=3282.957mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4223.08mil|Location2.X=4234.33mil|Location1.Y=3271.707mil|Location2.Y=3282.957mil|Absolute=True">Silk To Silk Clearance Constraint: (0.234mm &lt; 0.254mm) Between Text "MOSI" (108.049mm,85.5mm) on Bottom Overlay And Track (105.4mm,83mm)(111mm,83mm) on Bottom Overlay Silk Text to Silk Clearance [0.234mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID2L4YGCPUHUWZHVKTX2YD31GZUB4DFMT2RKHVA1BLAD3TMSFQLPMJ"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Board Clearance Constraint (Gap=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4784.315mil|Location2.X=4801.753mil|Location1.Y=2985.604mil|Location2.Y=2996.854mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4784.315mil|Location2.X=4801.753mil|Location1.Y=2985.604mil|Location2.Y=2996.854mil|Absolute=True">Board Outline Clearance(Cutout Edge): (0.208mm &lt; 0.254mm) Between Arc (121.8mm,75.65mm) on Top Overlay And Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8001.129mil|Location2.X=8004.754mil|Location1.Y=11603.984mil|Location2.Y=11607.609mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8001.129mil|Location2.X=8004.754mil|Location1.Y=11603.984mil|Location2.Y=11607.609mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.1mm) Between Board Edge And Text "Bottom Ref" (199.9mm,294.3mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4049.554mil|Location2.X=4053.179mil|Location1.Y=4390.683mil|Location2.Y=4394.308mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4049.554mil|Location2.X=4053.179mil|Location1.Y=4390.683mil|Location2.Y=4394.308mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.1mm) Between Board Edge And Text "EC-4pole 32 Ø32 mm, brushless, 480 Watt" (90mm,111.2mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8027.715mil|Location2.X=8031.34mil|Location1.Y=9019.841mil|Location2.Y=9023.466mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8027.715mil|Location2.X=8031.34mil|Location1.Y=9019.841mil|Location2.Y=9023.466mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.1mm) Between Board Edge And Text "Impedance (O)
+Type
+Signal Layer
+Top Ref
+Bottom Ref
+Trace Width
+Trace Spacing
+Impedance trace to copper
+50
+Single Ended (Non coplanar)
+L
+1
+/
+L
+2
+0.1509
+/
+/
+50
+Single Ended (Non coplanar)
+L
+3
+L
+2
+L
+5
+0.1313
+/
+/
+50
+Single Ended (Non coplanar)
+L
+6
+L
+5
+/
+0.1509
+/
+/" (151.7mm,178.8mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6576.733mil|Location2.X=6580.357mil|Location1.Y=11544.238mil|Location2.Y=11547.862mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6576.733mil|Location2.X=6580.357mil|Location1.Y=11544.238mil|Location2.Y=11547.862mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.1mm) Between Board Edge And Text "Impedance (O)" (157.954mm,292.762mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9251.557mil|Location2.X=9255.182mil|Location1.Y=11610.463mil|Location2.Y=11614.087mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9251.557mil|Location2.X=9255.182mil|Location1.Y=11610.463mil|Location2.Y=11614.087mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.1mm) Between Board Edge And Text "Impedance trace to copper" (227mm,294.6mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5034.509mil|Location2.X=5038.133mil|Location1.Y=4521.677mil|Location2.Y=4525.302mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5034.509mil|Location2.X=5038.133mil|Location1.Y=4521.677mil|Location2.Y=4525.302mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.1mm) Between Board Edge And Text "JLC06121H-3313A(Special/Finished thickness1.17mm±10%)" (89.454mm,114.262mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7350.872mil|Location2.X=7354.496mil|Location1.Y=11578.995mil|Location2.Y=11582.619mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7350.872mil|Location2.X=7354.496mil|Location1.Y=11578.995mil|Location2.Y=11582.619mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.1mm) Between Board Edge And Text "Signal Layer" (183mm,293.8mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7676.402mil|Location2.X=7680.027mil|Location1.Y=11579.285mil|Location2.Y=11582.91mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7676.402mil|Location2.X=7680.027mil|Location1.Y=11579.285mil|Location2.Y=11582.91mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.1mm) Between Board Edge And Text "Top Ref" (192.6mm,293.8mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8695.949mil|Location2.X=8699.574mil|Location1.Y=11610.491mil|Location2.Y=11614.115mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8695.949mil|Location2.X=8699.574mil|Location1.Y=11610.491mil|Location2.Y=11614.115mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.1mm) Between Board Edge And Text "Trace Spacing" (216.6mm,294.6mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8321.156mil|Location2.X=8324.78mil|Location1.Y=11611.54mil|Location2.Y=11615.164mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8321.156mil|Location2.X=8324.78mil|Location1.Y=11611.54mil|Location2.Y=11615.164mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.1mm) Between Board Edge And Text "Trace Width" (207.8mm,294.5mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7087.48mil|Location2.X=7091.104mil|Location1.Y=11578.662mil|Location2.Y=11582.287mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7087.48mil|Location2.X=7091.104mil|Location1.Y=11578.662mil|Location2.Y=11582.287mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.1mm) Between Board Edge And Text "Type" (178.6mm,293.8mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3367.413mil|Location2.X=3383.672mil|Location1.Y=3883.865mil|Location2.Y=3895.115mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3367.413mil|Location2.X=3383.672mil|Location1.Y=3883.865mil|Location2.Y=3895.115mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.119mm &lt; 0.254mm) Between Board Edge And Track (85.733mm,98.7mm)(86.522mm,97.009mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3367.413mil|Location2.X=3383.672mil|Location1.Y=3883.865mil|Location2.Y=3895.115mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3367.413mil|Location2.X=3383.672mil|Location1.Y=3883.865mil|Location2.Y=3895.115mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.119mm &lt; 0.254mm) Between Board Edge And Track (85.733mm,98.7mm)(91.171mm,101.236mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3635.948mil|Location2.X=3653.91mil|Location1.Y=4009.756mil|Location2.Y=4021.006mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3635.948mil|Location2.X=3653.91mil|Location1.Y=4009.756mil|Location2.Y=4021.006mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.151mm &lt; 0.254mm) Between Board Edge And Track (91.171mm,101.236mm)(92.531mm,101.87mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3635.948mil|Location2.X=3653.91mil|Location1.Y=4009.756mil|Location2.Y=4021.006mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Motor Controller PCB\Copy of Motor Controller.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3635.948mil|Location2.X=3653.91mil|Location1.Y=4009.756mil|Location2.Y=4021.006mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.151mm &lt; 0.254mm) Between Board Edge And Track (92.531mm,101.87mm)(93.348mm,100.117mm) on Top Overlay </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
